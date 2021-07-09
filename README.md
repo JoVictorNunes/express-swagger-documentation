@@ -33,3 +33,5 @@ npm install
 Run the following command in order to start the application in a development environment:
 
 ```npm start```
+
+Go to ```localhost:5000``` to se the docs.
