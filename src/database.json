@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bd42fc4a-833f-4bef-afdb-c4a4d62a070a",
+    "name": "Fones de ouvido",
+    "description": "Fones de ouvido intrauricular branco.",
+    "price": 20
+  },
+  {
+    "id": "fb9b2730-eb82-4d9a-a8fa-950de8b09961",
+    "name": "Teclado Mecânico",
+    "description": "Teclado mecânico para PC, notebook e PS5.",
+    "price": 300
+  },
+  {
+    "id": "9666fcab-898b-4277-b3d8-a65a8d335797",
+    "name": "Mouse USB",
+    "description": "Mouse USB para PC cor preta.",
+    "price": 50
+  },
+  {
+    "id": "700c6b5e-4339-459a-bc38-19f00813d7c7",
+    "name": "Suporte notebook",
+    "description": "Suporte em aço para notebook.",
+    "price": 40
+  }
+]

@@ -1,0 +1,177 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Cadastro de Produtos",
+    "description": "API para cadastro de produtos em uma loja.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/product",
+      "description": "API de teste"
+    },
+    {
+      "url": "http://production.localhost:5000/product",
+      "description": "API de produção"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "summary": "Cadastrar produto.",
+        "responses": {
+          "201": {
+            "description": "Product created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/productResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Product already exists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/product"
+              },
+              "example": {
+                "name": "Teclado Mecânico",
+                "description": "Teclado mecânico USB para PC, Notebook e PS5",
+                "price": 300
+              }
+            }
+          }
+        }
+      }
+    },
+    "/findById/{productId}": {
+      "get": {
+        "summary": "Obter um produto pelo id.",
+        "parameters": [{
+          "in": "path",
+          "name": "productId",
+          "required": true,
+          "description": "O id do produto.",
+          "schema": {
+            "type": "string"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/productResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Product does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/findByName": {
+      "get": {
+        "summary": "Obter um produto pelo nome.",
+        "parameters": [{
+          "in": "query",
+          "name": "name",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "O nome do produto."
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/productResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Product does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "product": {
+        "type": "object",
+        "required": ["name", "price"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "integer"
+          }
+        }
+      },
+      "productResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "integer"
+          }
+        }
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
