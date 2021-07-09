@@ -34,4 +34,4 @@ Run the following command in order to start the application in a development env
 
 ```npm start```
 
-Go to ```localhost:5000``` to see the docs.
+Go to ```localhost:5000/api-docs``` to see the docs.
