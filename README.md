@@ -1,6 +1,6 @@
 # Swagger Documentation
 
-> A simple application that shows how we can documentating RESTful API's developed with Express by using Swagger to auto-generate a documentation UI.
+> A simple application that shows how we can documentating a RESTful API by using Express and Swagger to auto-generate a documentation UI.
 
 # :construction_worker: Installation
 
